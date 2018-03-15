@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .newdiv{
+        height: 50px;
+        background-color: brown;
+        color: aliceblue;
+        font-size: 30px;
+        padding: 15px;
+        text-align: center;
+        display: inline-block;
+        margin-right: 2px;
+    }
+
+    .onediv{
+        display: inline-block;
+    }
+
+    span{
+        background-color: #fff;
+        color:black;
+    }
+</style>
+<body>
+    
+        <textarea name="" id="number" cols="30" rows="10"></textarea>
+        <button id="leftIn">左侧入</button>
+        <button id="rightIn">右侧入</button>
+        <button id="leftOut">左侧出</button>
+        <button id="rightOut">右侧出</button><br>
+        <input type="text" name="" id="sear">
+        <button id="search">搜索</button>
+        <div id="container"></div>
+
+</body>
+
+<script type="text/javascript">
+    var newDiv;
+    var oneDiv;
+    var del;
+    var nn = [];
+    var item;
+
+    document.getElementById('rightIn').onclick = function rIn(){    
+        if(document.getElementById("number").value == ""){
+            alert("输入为空，请输入数字！");
+        }
+        else{
+            creat();
+            document.getElementById('number').value = "";}
+    }
+        
+
+    document.getElementById('leftIn').onclick = function lIn(){
+        if(document.getElementById("number").value == ""){
+            alert("输入为空，请输入数字！");
+        }
+        else{
+        creat();
+        /*以下两句作用相同，都代表把新建元素插在container的第一个元素节点之前*/
+        container.insertBefore(oneDiv,container.firstElementChild);
+        // container.insertBefore(newDiv,container.childNodes[0]);
+        document.getElementById('number').value = "";}
+    }
+
+    document.getElementById('rightOut').onclick = function rOut(){
+        if(container.lastElementChild.innerText == ""){
+            container.lastElementChild.remove();
+            // console.log("已删除");
+        }
+        del = container.lastElementChild.lastElementChild.innerText;
+        alert(del);
+        container.lastElementChild.lastElementChild.remove();
+        document.getElementById('number').value = "";
+    }
+    
+    document.getElementById('leftOut').onclick = function lOut(){
+        if(container.firstElementChild.innerText == ""){
+            container.firstElementChild.remove();
+            // console.log("已删除");
+        }
+        del = container.firstElementChild.firstElementChild.innerText;
+        alert(del);
+        
+        container.firstElementChild.firstElementChild.remove();
+        document.getElementById('number').value = "";
+    }
+
+    function creat(){
+        var target = document.getElementById("number").value;
+        var end = target.split(/["\n\t\,\，\、"" "]/);
+        oneDiv = document.createElement("div");
+        oneDiv.className = "onediv";
+        for(i=0;i<end.length;i++){
+            newDiv = document.createElement("div");
+            newDiv.className = "newdiv";
+            newDiv.innerText = end[i];
+            oneDiv.appendChild(newDiv);
+        }
+        container.appendChild(oneDiv);
+        }
+
+
+        document.getElementById("search").onclick = function(){
+            item = document.getElementById("sear").value;
+            search();
+        }
+
+    function search(){
+        for(i=0;i<container.childNodes.length;i++){
+            for(j=0;j<container.childNodes[i].children.length;j++){
+                    nn = container.childNodes[i].children[j];
+                    nn.innerHTML = nn.innerText.replace(new RegExp(item,'g'),"<span>" + item + "</span>");
+                }
+        }
+    }
+    
+
+    /*点击删除当前元素*//*无作用*/
+    container.addEventListener("click",function(){
+        if(event.target.nodeName.toLowerCase() == "div"){
+            container.removeChild(event.target);
+        }
+    })
+
+    /*RegExp构造函数用于文本匹配，new RegExp( , ),前面为匹配内容，后面为查找范围，g为全局匹配*/
+    /*为保证左右添加全部，把一次输入的全部newDiv放入一个oneDiv中，再把大的oneDiv当做之前js4任务的单元素*/
+    /*左右移除时，要深入到最小元素newDiv移除，否则移除的是一整个oneDiv*/
+</script>
+</html>
+

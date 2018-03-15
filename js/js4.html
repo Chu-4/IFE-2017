@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .newdiv{
+        height: 50px;
+        width: 50px;
+        background-color: brown;
+        color: aliceblue;
+        font-size: 30px;
+        padding: 15px;
+        text-align: center;
+        display: inline-block;
+    }
+</style>
+<body>
+    
+        <input type="text" name="" id="number">
+        <button id="leftIn">左侧入</button>
+        <button id="rightIn">右侧入</button>
+        <button id="leftOut">左侧出</button>
+        <button id="rightOut">右侧出</button>
+        <div id="container"></div>
+
+</body>
+
+<script type="text/javascript">
+    var newDiv;
+    var del;
+    function creat(){
+        newDiv = document.createElement("div");
+        newDiv.className = "newdiv";
+        newDiv.innerText = document.getElementById("number").value;
+    }
+
+    document.getElementById('rightIn').onclick = function rIn(){    
+        if(document.getElementById("number").value == ""){
+            alert("输入为空，请输入数字！");
+        }
+        else{
+        creat();
+        var a = container.appendChild(newDiv);
+        document.getElementById('number').value = "";}
+        }
+
+    document.getElementById('leftIn').onclick = function lIn(){
+        if(document.getElementById("number").value == ""){
+            alert("输入为空，请输入数字！");
+        }
+        else{
+        creat();
+        var container = document.getElementById("container");
+        /*以下两句作用相同，都代表把新建元素插在container的第一个元素节点之前*/
+        container.insertBefore(newDiv,container.firstElementChild);
+        // container.insertBefore(newDiv,container.childNodes[0]);
+        document.getElementById('number').value = "";}
+    }
+
+    document.getElementById('rightOut').onclick = function rOut(){
+        del = container.lastElementChild.innerText;
+        alert(del);
+        container.lastElementChild.remove();
+        document.getElementById('number').value = "";
+    }
+    
+    document.getElementById('leftOut').onclick = function lOut(){
+        del = container.firstElementChild.innerText;
+        alert(del);
+        container.firstElementChild.remove();
+        document.getElementById('number').value = "";
+    }
+
+    /*点击删除当前元素*/
+    container.addEventListener("click",function(){
+        if(event.target.nodeName.toLowerCase() == "div"){
+            container.removeChild(event.target);
+        }
+    })
+</script>
+
+
+
+</html>
+<!-- summary：
+        appendChild();在后面加入子节点，
+        insertBefore(newItem,existingItem);在指定位置前插入，
+        first/lastElementChild.remove();头/尾节点移除，
+        在之前都必须注明操作的对象，在这里是container。
+
+        firstElementChild和childNodes[0]在这里效果相同。
+
+        document.getElementById('number').value = "";点击button清空input的text内容。
+
+        event.target返回触发该事件的节点，即谁调用了时间相关，就返回谁本身。个人觉得有点像this
+-->

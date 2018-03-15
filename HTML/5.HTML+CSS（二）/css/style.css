@@ -1,0 +1,207 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    min-width: 700px;
+    margin: 0 20px;
+}
+
+a{
+    text-decoration: none;
+    color: #000000;
+}
+
+.head{
+    /* border: solid 1px #000000; */
+    width: auto;
+    height: 130px;
+    overflow: hidden;
+}
+
+.fir{
+    border: solid 1px #000000;
+    padding: 20px;
+    margin: 20px 340px 0 0;
+    position: relative;
+    box-shadow: 2px 2px 5px;
+    overflow: auto;
+}
+
+.sec{
+    border: solid 1px #000000;
+    padding: 20px;
+    margin: 20px 340px 0 0;
+    box-shadow: 2px 2px 5px;
+    overflow: auto;
+}
+
+.thir{
+    border: solid 1px #000000;
+    padding-bottom: 40px;
+    margin: 20px 340px 0 0;
+    box-shadow: 2px 2px 5px;
+}
+
+.four{
+    border: solid 1px #000000;
+    margin: 20px 340px 0 0;
+    padding: 20px;
+    box-shadow: 2px 2px 5px;
+}
+
+
+.side{
+    border: solid 1px #000000;
+    width: 270px;
+    float: right;
+    padding: 20px;
+    /* margin-top: 20px; */
+    position: relative;
+    box-shadow: 2px 2px 5px;
+}
+
+.foot{
+    /* border: solid 1px #000000; */
+    width: 100%;
+    height: 100px;
+    margin-top: 20px;
+    background-color: #161b1dcc;
+}
+
+.THOR{
+    width: 70px;
+    margin-left: 26px;
+    margin-top: 20px;
+}
+
+.LOKI{
+    width: 70px;
+    float: right;
+    margin-right: 20px;
+    margin-top: -12px;
+    position: relative;
+}
+
+h1{
+    margin-top: -100px;
+    font-family: Lithos Pro Regular;
+    font-size: 50px;
+    position: relative;
+    margin-left: 42%;
+}
+
+p{
+    font-family: Segoe Print;
+}
+
+.hug{
+    left: 110px;
+    width: 340px;
+    margin-top: -50px;
+    position: relative;
+}
+
+.here{
+    float: right;
+    margin-right: 80px;
+    margin-top: -45px;
+}
+
+.end1{
+    font-family: Segoe Print;
+    left: 43%;
+    position: relative;
+    width: 400px;
+    color: rgb(231, 82, 82);
+}
+
+.end2{
+    font-family: Segoe Print;
+    left: 45%;
+    position: relative;
+    width: 400px;
+    color: rgb(21, 151, 21);
+}
+
+table{
+    padding-left: 20px;
+}
+
+.button{
+    margin-left: 25%;
+    margin-top: 5%;
+    height:35px;
+    width:50%; 
+    color:rgb(237, 243, 239); 
+    background-color:rgb(89, 51, 226);
+    border-radius:20px;
+}
+
+.pic img{
+    width: 50px;
+}
+
+.pic{
+    margin: 0 0 0 70px;
+    float: left;
+}
+
+.clearfix:after{
+    display: block;
+    content: " ";
+    clear: both;
+}
+
+.clearfix{
+    *zoom: 1;
+}
+
+
+#word{
+    margin-left: 20px;
+    margin-top: 10px;
+    resize: none;
+}
+
+.show tr{
+    height: 40px;
+}
+
+.show td{
+    width:33.3em;
+    padding:5px;
+    font-family: 黑体;
+    font-weight: bold;
+}
+
+.show{
+    margin-top: 30px;
+}
+
+.four p{
+    color:grey;
+    font-family: 黑体;
+    font-size: 0.5em;
+}
+
+.sec li{
+    list-style: none;
+}
+
+
+.fir img{
+    width: 200px;
+    float: left;
+    margin: 20px 20px 0 0;
+}
+
+.sec img{
+    width: 200px;
+    float: left;
+    margin: 20px 20px 0 0;
+}
+
+.end1{
+    padding-top: 20px;s
+}

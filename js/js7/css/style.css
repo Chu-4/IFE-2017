@@ -1,0 +1,40 @@
+.first{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;/*侧轴对齐*/
+    justify-content: space-around;/*主轴对齐*/
+    border: 1px solid #000;
+    height: 300px;
+    width: 60%;
+    background-color: #fff;
+}
+
+.second{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;/*侧轴对齐*/
+    justify-content: space-around;/*主轴对齐*/
+    border: 1px solid #000;
+    height: 70%;
+    width: 46%;
+    background-color: #fff;
+}
+
+.third{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;/*侧轴对齐*/
+    justify-content: space-around;/*主轴对齐*/
+    border: 1px solid #000;
+    height: 70%;
+    width: 44%;
+    background-color: #fff;
+}
+
+.fourth{
+    display: flex;
+    border: 1px solid #000;
+    height: 70%;
+    width: 37%;
+    background-color: #fff;
+}

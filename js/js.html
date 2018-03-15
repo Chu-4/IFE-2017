@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IFE JavaScript Task 01</title>
+  </head>
+<body>
+
+  <h3>污染城市列表</h3>
+  <ul id="aqi-list">
+<!--   
+    <li>第一名：福州（样例），10</li>
+      <li>第二名：福州（样例），10</li> -->
+  </ul>
+
+<script type="text/javascript">
+
+var aqiData = [
+  ["北京", 30],
+  ["上海", 50],
+  ["福州", 10],
+  ["广州", 100],
+  ["成都", 300],
+  ["西安", 150]
+];
+
+(function () {    
+  /*
+  在注释下方编写代码
+  遍历读取aqiData中各个城市的数据
+  将空气质量指数大于60的城市显示到aqi-list的列表中
+  */
+  
+
+  var paixu = new Array();
+    var count = 1
+    function down(a,b){
+        return b[1]-a[1];
+    }
+    for(i=0;i<6;i++){
+        var a = aqiData[i][1];
+        if(a > 60){
+            paixu.push(aqiData[i]);
+        }
+    }
+    var c = paixu.sort(down);/*排序*/
+    for(j=0;j<c.length;j++){
+        var li = document.createElement("li");
+        li.innerHTML = "第"+ count + "名：" + c[j][0] + "," + c[j][1];
+        count++;    
+        document.getElementById("aqi-list").appendChild(li); 
+        }
+
+/*summary：*/
+/*动态创建li，将每次创建的li添加到ul中*/
+/*sort排序，默认升序 即a-b，降序则b在a前面，b-a，二维数组则注明 a[]-b[] 或 b[]-a[]*/
+
+
+})();
+
+</script>
+</body>
+</html>

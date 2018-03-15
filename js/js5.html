@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .newdiv{
+        width: 20px;
+        background-color: brown;
+        color: aliceblue;
+        display: inline-block;
+        margin-right: 2px;
+        margin-top: 10px;
+    }
+</style>
+<body>
+    
+        <input type="text" name="" id="number">
+        <button id="leftIn">左侧入</button>
+        <button id="rightIn">右侧入</button>
+        <button id="leftOut">左侧出</button>
+        <button id="rightOut">右侧出</button>
+        <button id="sort">排序</button>
+        <div id="container"></div>
+        <div id="containers"></div>
+
+</body>
+
+<script type="text/javascript">
+    var newDiv;
+    var num = 1;
+    var arr = new Array();
+    function creat(){
+        newDiv = document.createElement("div");
+        newDiv.className = "newdiv";
+        newDiv.value = document.getElementById("number").value;
+        newDiv.style.height = document.getElementById("number").value + "px";
+        arr.push(newDiv);
+        num++;
+    }
+
+    document.getElementById('sort').onclick = function sort(){  /*排序*/
+        for(j=1;j<container.childNodes.length+1;j++){
+            for(i=0;i<container.childNodes.length;i++){
+                if(container.childNodes[i].style.height>container.childNodes[j].style.height){
+                    var temp = container.childNodes[i].style.height;
+                    container.childNodes[i].style.height = container.childNodes[j].style.height;
+                    container.childNodes[j].style.height = temp;
+                }
+            }
+        }
+    }
+
+    document.getElementById('rightIn').onclick = function rIn(){    
+        if(document.getElementById("number").value == ""){
+            alert("输入为空，请输入数字！");
+        }
+        else if(document.getElementById("number").value < 10 || document.getElementById("number").value > 100){
+            alert("请输入10-100之间的数字！");
+        }
+        else if(num > 60){
+            alert("队列元素最多为60，已满！");
+        }
+        else{
+        creat();
+        var a = container.appendChild(newDiv);
+        document.getElementById('number').value = "";}
+        }
+ 
+    document.getElementById('leftIn').onclick = function lIn(){
+        if(document.getElementById("number").value == ""){
+            alert("输入为空，请输入数字！");
+        }
+        else if(document.getElementById("number").value < 10 || document.getElementById("number").value > 100){
+            alert("请输入10-100之间的数字！");
+        }
+        else if(num > 60){
+            alert("队列元素最多为60，已满！");
+        }
+        else{
+        creat();
+        var container = document.getElementById("container");
+        /*以下两句作用相同，都代表把新建元素插在container的第一个元素节点之前*/
+        container.insertBefore(newDiv,container.firstElementChild);
+        // container.insertBefore(newDiv,container.childNodes[0]);
+        document.getElementById('number').value = "";}
+    }
+
+    document.getElementById('rightOut').onclick = function rOut(){
+        del = container.lastElementChild.value;
+        alert(del);
+        container.lastElementChild.remove();
+        document.getElementById('number').value = "";
+    }
+    
+    document.getElementById('leftOut').onclick = function lOut(){
+        del = container.firstElementChild.value;
+        alert(del);
+        container.firstElementChild.remove();
+        document.getElementById('number').value = "";
+    }
+
+    /*点击删除当前元素*/
+    container.addEventListener("click",function(){
+        if(event.target.nodeName.toLowerCase() == "div"){
+            container.removeChild(event.target);
+        }
+    })
+</script>
+
+
+
+</html>
