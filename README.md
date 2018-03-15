@@ -8,3 +8,6 @@
 [Task5-基本网页](http://chu-4.live/IFE-2017/HTML&CSS%20part/Task5/Task5.html)-包含了Task1和Task2<br><br>
 [Task5-模拟报纸排版](http://chu-4.live/IFE-2017/HTML&CSS%20part/Task6/Task6.html)<br><br>
 
+<h3>斌斌学院</h3>
+[Task1](http://chu-4.live/IFE-2017/JavaScript%20part/Task1.html)<br><br>
+
